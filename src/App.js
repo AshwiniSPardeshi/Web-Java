@@ -10,33 +10,25 @@ export default function App() {
 }
 
 function Hello() {
-  let counter = 100;
-  const like = () => {
-    counter++;
-    console.log(counter);
-  };
+  const [username, setUsername] = useState("");
+  const [userPass, setPass] = useState("");
 
-  //RHS :: SPECIAL FUNCTION :: startWith , prefix useState , useEffect
-  //React Hooks,
-  //useState :: it works with DOM internally.
-  // This function value get at runtime.
-  let [counter1, setCounter1] = useState(1010); // UseState Syntax
-  const like1 = () => {
-    const newCount1 = counter1 + 1;
-    setCounter1(newCount1);
+  const handleName = (e) => {
+    const newName = e.target.value;
+    setUsername(newName);
+  };
+ 
+  const handlePass = (e) => {
+    const newPass = e.target.value;
+    setPass(newPass);
   };
 
   return (
     <>
-      {counter}
-      {counter1}
+      <input type="text" value={username} onChange={handleName} />
+      <input type="password" value={userPass} onChange={handlePass} />
       <h1>
-        Counter: {counter}
-        <button onClick={like}>LIKE</button>
-      </h1>{" "}
-      <h1>
-        Counter1: {counter1}
-        <button onClick={like1}>LIKE1</button>
+        {username} {userPass}{" "}
       </h1>
     </>
   );
