@@ -1,22 +1,43 @@
+import { useState } from "react";
+
 export default function App() {
-  let p1 = "Ashwini";
-  console.log(p1);
   return (
     <>
-      <h1>Hello World {p1} </h1>
-      console.log(p1);
-      <Hello name="Teju" />
-      <Hello id="1" name="Pranabh" />
+      <h1>Hello World!! </h1>
+      <Hello />
     </>
   );
 }
 
-//JSX => X = >XML
-//JSX :: REACT COMPONENT
-/*function Hello(p) {
-  return <h1>Hello!! {p.name} </h1>;  // as variable parametre passed we have to use p.name
-}*/
+function Hello() {
+  let counter = 100;
+  const like = () => {
+    counter++;
+    console.log(counter);
+  };
 
-function Hello(name, id) {
-  return <h1>{name} </h1>; ///
+  //RHS :: SPECIAL FUNCTION :: startWith , prefix useState , useEffect
+  //React Hooks,
+  //useState :: it works with DOM internally.
+  // This function value get at runtime.
+  let [counter1, setCounter1] = useState(1010); // UseState Syntax
+  const like1 = () => {
+    const newCount1 = counter1 + 1;
+    setCounter1(newCount1);
+  };
+
+  return (
+    <>
+      {counter}
+      {counter1}
+      <h1>
+        Counter: {counter}
+        <button onClick={like}>LIKE</button>
+      </h1>{" "}
+      <h1>
+        Counter1: {counter1}
+        <button onClick={like1}>LIKE1</button>
+      </h1>
+    </>
+  );
 }
